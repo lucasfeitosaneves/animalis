@@ -63,6 +63,40 @@
             background-repeat: no-repeat;
         }
 
+        /* No mobile, escurece a foto do hero para melhorar a leitura do texto.
+           O desktop permanece com o visual original. */
+        @media (max-width: 767px) {
+            .hero-bg::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 0;
+                background: linear-gradient(
+                    90deg,
+                    rgba(15, 25, 18, 0.68) 0%,
+                    rgba(15, 25, 18, 0.48) 58%,
+                    rgba(15, 25, 18, 0.30) 100%
+                );
+                pointer-events: none;
+            }
+
+            .hero-bg h1 {
+                color: #ffffff;
+                text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+            }
+
+            .hero-bg p {
+                color: #f3f7f3;
+                text-shadow: 0 1px 8px rgba(0, 0, 0, 0.30);
+            }
+
+            .hero-bg a[href="#servicos"] {
+                color: #ffffff;
+                border-color: rgba(255, 255, 255, 0.9);
+                background: rgba(255, 255, 255, 0.08);
+            }
+        }
+
         /* Carrossel: esconde a barra de rolagem */
         .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
